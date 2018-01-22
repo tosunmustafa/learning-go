@@ -53,3 +53,41 @@
     }
     ```
 
+* __Accidental Variable Shadowing__
+    ```
+    package main
+    import "fmt"
+    func main() {  
+        x := 1
+        fmt.Println(x)     //prints 1
+        {
+            fmt.Println(x) //prints 1
+            x := 2
+            fmt.Println(x) //prints 2
+        }
+        fmt.Println(x)     //prints 1 (bad if you need 2)
+    }
+    ```
+    use : go tool vet -shadow main.go // Note that this will not report all shadowed variables.
+
+* __Can't Use "nil" to Initialize a Variable Without an Explicit Type__
+    ```
+    package main
+    func main() {  
+        var x = nil //error
+        var y interface{} = nil //works
+        _ = x
+        _ = y
+    }
+    ```
+
+* __Using "nil" Slices and Maps__
+    ```
+    package main
+    func main() {  
+        var s []int
+        s = append(s,1) //works
+        var m map[string]int
+        m["one"] = 1    //error
+    }
+    ```
