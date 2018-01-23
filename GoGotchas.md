@@ -88,6 +88,8 @@
         var s []int
         s = append(s,1) //works
         var m map[string]int
-        m["one"] = 1    //error
+        m["one"] = 1             //error --> panic: assignment to entry in nil map
+        m = make(map[string]int) // initialize map first
+        m["one"] = 1             // then it works
     }
     ```
