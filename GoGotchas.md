@@ -93,3 +93,13 @@
         m["one"] = 1             // then it works
     }
     ```
+
+* __Map Capacity__
+    _cap()_ function can not be used for maps
+    ```
+    package main
+    func main() {  
+    m := make(map[string]int,99)
+    cap(m) //compile error
+    }
+    ```
