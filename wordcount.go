@@ -11,7 +11,7 @@ func WordCount(s string) map[string]int {
 	for _, s := range stripped {
 		_ , ok := results[s]
 		if(ok) {
-			results[s] = results[s] + 1
+			results[s] += 1
 		} else {
 			results[s] = 1
 		}
