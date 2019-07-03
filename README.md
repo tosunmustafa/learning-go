@@ -1,2 +1,2 @@
 # learning-go
-Simple examples exercising language constructs
+Simple examples exercising language constructs.
